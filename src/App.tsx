@@ -1,12 +1,9 @@
-import { useTranslation } from 'react-i18next';
+import Header from "./component/header"
 
 function App() {
-  const { t, i18n } = useTranslation();
-
   return (
     <div className="App">
-      <h1>{t('appTitle')}</h1>
-      <h2>{t('appDescription')}</h2>
+      <Header />
     </div>
   )
 }

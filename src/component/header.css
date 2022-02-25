@@ -1,0 +1,23 @@
+#header-strip{
+    height: 9vh;
+    top: 0;
+    position: sticky;
+    background-color: azure;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-app-name{
+    padding-top: 3vh;
+    padding-left: 4vw;
+    width: fit-content;
+}
+
+#header-language-switcher{
+    padding-top: 1vh;
+    padding-right: 2vw;
+}
+
+#header-cur-lang-text{
+    width: fit-content;
+}
