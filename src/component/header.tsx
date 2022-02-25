@@ -9,7 +9,16 @@ import availableLang from '../i18n/langs.json'
 function Header() {
     const { t, i18n } = useTranslation();
 
-    const [langId, setLangId] = useState(0)
+    const [langId, setLangId] = (() => {
+        var i = 0;
+        for (let id = 0; id < availableLang.length; id++) {
+            if (availableLang[id] == i18n.language) {
+                i = id
+                break
+            }
+        }
+        return useState(i)
+    })()
 
     const tooltip = () => {
         return (
@@ -33,7 +42,7 @@ function Header() {
 
                 <div id="header-language-switcher">
                     <div id='header-cur-lang-text'>{t('currentLang') + ": "}</div>
-                    <Button variant="text" onClick={changeLanguage}>{i18n.language}</Button>
+                    <Button variant="text" onClick={changeLanguage}>{t(i18n.language)}</Button>
                 </div>
             </div>
         </div>
