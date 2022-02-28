@@ -82,11 +82,10 @@ function Header() {
     }
 
     return (
-        <AppBar>
+        <AppBar position='sticky'>
             <Box sx={{
                 height: `${headerHeight}px`,
                 top: '0',
-                position: 'sticky',
                 display: 'flex',
                 justifyContent: 'space-between',
             }}>
