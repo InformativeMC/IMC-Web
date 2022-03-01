@@ -4,6 +4,8 @@
         "appDescription": "A tool that helps you monitoring & modifying Minecraft Server",
         "currentLang": "Language",
         "en": "English",
-        "zh": "Chinese"
+        "zh": "Chinese",
+        "serverApiURL": "URL of server api",
+        "runAllTest": "Run All Test"
     }
 }

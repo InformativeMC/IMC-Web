@@ -1,28 +1,24 @@
 export interface Api {
     name: string,
     url: string,
-    requiredResponse: Map<string, any>,
-    optionalResponse: Map<string, any>,
+    requiredResponseField: Array<string>,
 }
 
 const ApiList: Array<Api> = [
     {
         name: 'heartbeat',
         url: '/api/system-info/heartbeat',
-        requiredResponse: new Map<string, any>([["status", "healthy"]]),
-        optionalResponse: new Map(),
+        requiredResponseField: ["status"],
     },
     {
         name: 'jvm-info',
         url: '/api/system-info/jvm-info',
-        requiredResponse: new Map<string, any>(),
-        optionalResponse: new Map(),
+        requiredResponseField: ['javaVersion', 'jvmInfo', 'jvmName', 'jvmVendor', 'jvmVersion', 'kotlinVersion'],
     },
     {
         name: 'os-info',
         url: '/api/system-info/os-info',
-        requiredResponse: new Map<string, any>(),
-        optionalResponse: new Map(),
+        requiredResponseField: ["allocatedMemory", "freeMemory", "maxMemory", "osName"],
     },
 ]
 
