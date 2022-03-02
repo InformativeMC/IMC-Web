@@ -24,7 +24,9 @@
     "strictNullChecks": true,
   },
   "include": [
-    "src"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.json",
   ],
   "references": [
     {
