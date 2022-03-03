@@ -1,11 +1,11 @@
-import Header from "./component/Header"
-import ApiChecker from "./component/ApiChecker"
+import AppBar from './component/ImcAppBar'
+import DevTool from './page/DevTool'
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <ApiChecker />
+    <div className='App'>
+      <AppBar />
+      <DevTool />
     </div>
   )
 }
