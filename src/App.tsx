@@ -10,7 +10,7 @@ function App() {
         <AppBar />
         <Routes>
           <Route path='/' element={<GeneralInfo />} />
-          <Route path='/general-info' element={<GeneralInfo />} />
+          <Route path='/overview' element={<GeneralInfo />} />
           <Route path='/dev-tool' element={<DevTool />} />
         </Routes>
         <Outlet />

@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
 import Stack from '@mui/material/Stack'
 import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
+import ButtonBase from '@mui/material/ButtonBase'
 import Box from '@mui/material/Box'
 import availableLang from '../i18n/langs.json'
+import { fontSize } from '@mui/system'
 
 
-function Header() {
+function ImcAppBar() {
     const { t, i18n } = useTranslation()
     const headerHeight = 70
 
@@ -31,25 +33,75 @@ function Header() {
     }
 
     const Logo = () => {
-        const logoFontSize = 18
-        const logoLineHeight = 25
+        const logoFontSize = 20
+        const logoLineHeight = 26
+        const navigate = useNavigate()
         return (
             <Tooltip title={logoTooltip()} placement="bottom">
-                {/* Add a logo pic here */}
-                <Box sx={{
-                    width: 'fit-content',
-                    lineHeight: `${logoLineHeight}px`,
-                    fontSize: `${logoFontSize}px`,
-                }}>
-                    {t('appTitle')}
-                </Box>
+                <ButtonBase
+                    onClick={() => {
+                        navigate('/')
+                    }}
+                >
+                    {/* Add a logo pic here */}
+                    <Box sx={{
+                        width: 'fit-content',
+                        lineHeight: `${logoLineHeight}px`,
+                        fontSize: `${logoFontSize}px`,
+                        fontWeight: 'bold',
+                    }}>
+                        {t('appTitle')}
+                    </Box>
+                </ButtonBase>
             </Tooltip>
         )
     }
 
-    const pageButton = (pageName: string) => {
+    const pageButton = (pageName: string, path: string, displayTextKey: string) => {
+        const pageTitleFontSize = 16
+
+        const navigate = useNavigate()
+        const location = useLocation()
+
+        const curPageSelected = (): boolean => {
+            var curPath = location.pathname
+            if (curPath.endsWith('?')) {
+                curPath = curPath.slice(0, curPath.length - 1)
+            }
+            return curPath == path
+        }
+
         return (
-            <>{pageName}</>
+            <ButtonBase
+                sx={{
+                    height: '100%',
+                }}
+                onClick={() => {
+                    navigate(path)
+                }}
+            >
+                <Box sx={{
+                    marginLeft: '10px',
+                    marginRight: '10px',
+                    // position: 'relative',
+                }}>
+                    <Box sx={{
+                        // TODO: change color
+                        color: curPageSelected() ? 'secondary.light' : 'primary.contrastText',
+                        fontSize: `${pageTitleFontSize}px`,
+                        fontWeight: 'bold',
+                    }}>
+                        {t(displayTextKey)}
+                    </Box>
+                </Box>
+                {/* <Box sx={{
+                    height: `${Math.round(headerHeight / 10)}px`,
+                    width: '100%',
+                    position: 'absolute',
+                    bottom: '0',
+                }}>
+                </Box> */}
+            </ButtonBase>
         )
     }
 
@@ -91,16 +143,13 @@ function Header() {
                         lg: '5%',
                     },
                 }}>
-                    <Link to='/'>
-                        <Logo />
-                    </Link>
+                    <Logo />
                 </Box>
 
                 <Stack
                     direction='row'
                     alignItems='center'
                     justifyContent='flex-start'
-                    spacing={2}
                     marginLeft={{
                         xs: '10px',
                         md: '40px'
@@ -114,12 +163,8 @@ function Header() {
                         },
                     }}
                 >
-                    <Link to='general-info'>
-                        {pageButton('general-info')}
-                    </Link>
-                    <Link to='/dev-tool'>
-                        {pageButton('dev-tool')}
-                    </Link>
+                    {pageButton('overview', '/overview', 'overview')}
+                    {pageButton('dev-tool', '/dev-tool', 'devTool')}
                 </Stack>
 
                 <Box sx={{
@@ -139,4 +184,4 @@ function Header() {
     )
 }
 
-export default Header
+export default ImcAppBar

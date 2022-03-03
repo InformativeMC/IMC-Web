@@ -3,6 +3,8 @@
         "appTitle": "IMC",
         "appDescription": "A tool that helps you monitoring & modifying Minecraft Server",
         "currentLang": "Language",
+        "overview": "Overview",
+        "devTool": "Dev Tool",
         "en": "ENG",
         "zh": "ZH",
         "serverApiURL": "URL of server api",
