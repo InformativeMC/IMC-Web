@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar'
+import Stack from '@mui/material/Stack'
 import Tooltip from '@mui/material/Tooltip'
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box'
@@ -24,28 +26,30 @@ function Header() {
 
     const logoTooltip = () => {
         return (
-            <div id='header-app-tool-tip'>{t('appDescription')}</div>
+            <div>{t('appDescription')}</div>
         )
     }
 
     const Logo = () => {
         const logoFontSize = 18
         const logoLineHeight = 25
-        const pTop = Math.round((headerHeight - logoLineHeight) / 2)
         return (
-            <Box>
-                <Tooltip title={logoTooltip()} placement="bottom">
-                    <Box sx={{
-                        paddingTop: `${pTop}px`,
-                        paddingLeft: '20px',
-                        width: 'fit-content',
-                        lineHeight: `${logoLineHeight}px`,
-                        fontSize: `${logoFontSize}px`,
-                    }}>
-                        {t('appTitle')}
-                    </Box>
-                </Tooltip>
-            </Box>
+            <Tooltip title={logoTooltip()} placement="bottom">
+                {/* Add a logo pic here */}
+                <Box sx={{
+                    width: 'fit-content',
+                    lineHeight: `${logoLineHeight}px`,
+                    fontSize: `${logoFontSize}px`,
+                }}>
+                    {t('appTitle')}
+                </Box>
+            </Tooltip>
+        )
+    }
+
+    const pageButton = (pageName: string) => {
+        return (
+            <>{pageName}</>
         )
     }
 
@@ -58,39 +62,78 @@ function Header() {
     }
 
     const LanguageSelector = () => {
-        const buttonSize = 30
-        const pTop = Math.round((headerHeight - buttonSize) / 2)
         return (
-            <Box sx={{
-                paddingTop: `${pTop}px`,
-                paddingRight: '16px',
-            }}>
-                <Box sx={{
-                    width: 'fit-content',
-                }}>
-                    <Button
-                        variant='contained'
-                        onClick={changeLanguage}
-                        color='secondary'
-                        size='small'
-                    >
-                        {t(i18n.language)}
-                    </Button>
-                </Box>
-            </Box>
+            <Button
+                variant='contained'
+                onClick={changeLanguage}
+                color='secondary'
+                size='small'
+            >
+                {t(i18n.language)}
+            </Button>
         )
     }
 
     return (
         <AppBar position='sticky'>
             <Box sx={{
+                width: '100%',
                 height: `${headerHeight}px`,
-                top: '0',
                 display: 'flex',
-                justifyContent: 'space-between',
             }}>
-                <Logo />
-                <LanguageSelector />
+                <Box sx={{
+                    margin: 'auto',
+                    marginLeft: '10px',
+                    width: {
+                        xs: '12%',
+                        sm: '10%',
+                        md: '8%',
+                        lg: '5%',
+                    },
+                }}>
+                    <Link to='/'>
+                        <Logo />
+                    </Link>
+                </Box>
+
+                <Stack
+                    direction='row'
+                    alignItems='center'
+                    justifyContent='flex-start'
+                    spacing={2}
+                    marginLeft={{
+                        xs: '10px',
+                        md: '40px'
+                    }}
+                    sx={{
+                        width: {
+                            xs: '76%',
+                            sm: '80%',
+                            md: '84%',
+                            lg: '90%',
+                        },
+                    }}
+                >
+                    <Link to='general-info'>
+                        {pageButton('general-info')}
+                    </Link>
+                    <Link to='/dev-tool'>
+                        {pageButton('dev-tool')}
+                    </Link>
+                </Stack>
+
+                <Box sx={{
+                    margin: 'auto',
+                    marginRight: '10px',
+                    width: {
+                        xs: '12%',
+                        sm: '10%',
+                        md: '8%',
+                        lg: '5%',
+                    },
+                }}>
+                    <LanguageSelector />
+                </Box>
             </Box>
         </AppBar>
     )

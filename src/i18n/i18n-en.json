@@ -1,10 +1,10 @@
 {
     "translation": {
-        "appTitle": "InformativeMC",
+        "appTitle": "IMC",
         "appDescription": "A tool that helps you monitoring & modifying Minecraft Server",
         "currentLang": "Language",
-        "en": "English",
-        "zh": "Chinese",
+        "en": "ENG",
+        "zh": "ZH",
         "serverApiURL": "URL of server api",
         "runAllTest": "Run All Test"
     }
