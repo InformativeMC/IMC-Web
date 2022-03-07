@@ -2,7 +2,7 @@ import AppBar from './component/ImcAppBar'
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
 import GeneralInfo from './routes/GeneralInfo'
 import DevTool from './routes/DevTool'
-import Login from './routes/Login'
+import LogIn from './routes/LogIn'
 import { useState } from 'react'
 
 function App() {
@@ -23,13 +23,13 @@ function App() {
           <Route
             path='/'
             element={
-              <Login serverAddr={serverAddr} setServerAddr={setBothServer} />
+              <LogIn serverAddr={serverAddr} setServerAddr={setBothServer} />
             }
           />
           <Route
             path='/login'
             element={
-              <Login serverAddr={serverAddr} setServerAddr={setBothServer} />
+              <LogIn serverAddr={serverAddr} setServerAddr={setBothServer} />
             }
           />
           <Route

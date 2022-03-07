@@ -28,7 +28,7 @@ function ImcAppBar() {
 
   const logoTooltip = () => {
     return (
-      <div>{t('appDescription')}</div>
+      <div>{t('backToHomePage')}</div>
     )
   }
 

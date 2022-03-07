@@ -1,8 +1,10 @@
 {
     "translation": {
         "appTitle": "IMC",
-        "appDescription": "A tool that helps you monitoring & modifying Minecraft Server",
+        "appDescription": "A tool that helps you monitor & control Minecraft Servers",
+        "features":"Check resource usage\nExecuting commands\nCheck & modifying player data\nDistribute items\nBroadcast messages",
         "currentLang": "Language",
+        "backToHomePage": "Back to homepage",
         "overview": "Overview",
         "devTool": "Dev Tool",
         "en": "ENG",
