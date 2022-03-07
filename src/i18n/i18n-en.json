@@ -8,6 +8,7 @@
         "en": "ENG",
         "zh": "ZH",
         "serverApiURL": "URL of server api",
+        "testServerApiURL": "URL of test server api",
         "runAllTest": "Run All Test"
     }
 }

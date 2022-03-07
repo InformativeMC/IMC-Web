@@ -1,13 +1,14 @@
 {
-    "translation": {
-        "appTitle": "IMC",
-        "appDescription": "一个帮助你监控与修改 MC 服务器的工具",
-        "currentLang": "当前语言",
-        "overview": "数据总览",
-        "devTool": "开发者工具",
-        "en": "英语",
-        "zh": "中文",
-        "serverApiURL": "服务器 API 地址",
-        "runAllTest": "运行所有测试"
-    }
+  "translation": {
+    "appTitle": "IMC",
+    "appDescription": "一个帮助你监控与修改 MC 服务器的工具",
+    "currentLang": "当前语言",
+    "overview": "数据总览",
+    "devTool": "开发者工具",
+    "en": "英语",
+    "zh": "中文",
+    "serverApiURL": "服务器 API 地址",
+    "testServerApiURL": "测试服务器 API 地址",
+    "runAllTest": "运行所有测试"
+  }
 }
