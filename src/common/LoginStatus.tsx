@@ -1,6 +1,6 @@
 interface LogInStatus {
-  loggedIn: boolean
-  token: string
+  loggedIn: boolean;
+  token: string;
 }
 
-export default LogInStatus
+export default LogInStatus;

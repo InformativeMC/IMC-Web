@@ -1,67 +1,68 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import Box from '@mui/material/Box'
-import TextField from '@mui/material/TextField'
-import ServerInfo from '../common/ServerInfo'
-import Stack from '@mui/material/Stack'
-import TweenOne, { TweenOneGroup } from 'rc-tween-one'
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import ServerInfo from '../common/ServerInfo';
+import Stack from '@mui/material/Stack';
+import TweenOne from 'rc-tween-one';
 
-function LogIn (props: ServerInfo) {
-  const { t } = useTranslation()
+function LogIn(props: ServerInfo) {
+  const {t} = useTranslation();
 
   const Features = () => {
     const featureArray = t('features')
-      .split('\n')
-      .filter((value) => value != '' && value != '\n')
+        .split('\n')
+        .filter((value) => value !== '' && value !== '\n');
     return (
-      <Box sx={{
-        display: {
-          xs: 'none',
-          md: 'block'
-        },
-        marginTop: '20px'
-      }}>
+      <Box
+        sx={{
+          display: {
+            xs: 'none',
+            md: 'block',
+          },
+          marginTop: '20px',
+        }}
+      >
         <Stack
           spacing='5px'
           margin='auto'
           marginLeft={{
             xs: '100px',
-            lg: '150px'
+            lg: '150px',
           }}
         >
           {featureArray.map((value, index) => {
             return (
-              <Box
-                key={index.toString()}
-              >
+              <Box key={index.toString()}>
                 <TweenOne
                   style={{
                     paddingLeft: '70px',
                     opacity: 0.3,
-                    filter: 'blur(3px),'
+                    filter: 'blur(3px),',
                   }}
                   animation={[
-                    { x: '-70px', y: '10px', blur: '0px', opacity: 1, duration: 400 + Number(index) * 100 }
+                    {
+                      x: '-70px',
+                      y: '10px',
+                      blur: '0px',
+                      opacity: 1,
+                      duration: 400 + Number(index) * 100,
+                    },
                   ]}
                 >
                   {value}
                 </TweenOne>
               </Box>
-            )
-          })
-          }
-        </Stack >
-      </Box >
-    )
-  }
+            );
+          })}
+        </Stack>
+      </Box>
+    );
+  };
 
   const Slogan = () => {
-    return (
-      <h3>
-        {t('appTitle') + ': ' + t('appDescription')}
-      </h3>
-    )
-  }
+    return <h3>{t('appTitle') + ': ' + t('appDescription')}</h3>;
+  };
 
   const Description = () => {
     return (
@@ -70,18 +71,18 @@ function LogIn (props: ServerInfo) {
           style={{
             paddingLeft: '70px',
             opacity: 0.3,
-            filter: 'blur(3px),'
+            filter: 'blur(3px),',
           }}
           animation={[
-            { x: '-70px', y: '10px', blur: '0px', opacity: 1, duration: 400 }
+            {x: '-70px', y: '10px', blur: '0px', opacity: 1, duration: 400},
           ]}
         >
           <Slogan />
         </TweenOne>
         <Features />
       </Box>
-    )
-  }
+    );
+  };
 
   return (
     <Box
@@ -90,23 +91,23 @@ function LogIn (props: ServerInfo) {
         display: 'flex',
         flexDirection: {
           xs: 'column',
-          md: 'row-reverse'
-        }
+          md: 'row-reverse',
+        },
       }}
     >
       <Box
         width='fit-content'
         margin={{
           xs: 'auto',
-          md: 'auto'
+          md: 'auto',
         }}
         marginRight={{
           xs: 'auto',
-          md: '12vw'
+          md: '12vw',
         }}
         marginTop={{
           xs: '20px',
-          md: '15vh'
+          md: '15vh',
         }}
       >
         <Description />
@@ -115,11 +116,11 @@ function LogIn (props: ServerInfo) {
         width='fit-content'
         margin={{
           xs: 'auto',
-          md: 'auto'
+          md: 'auto',
         }}
         marginLeft={{
           xs: 'auto',
-          md: '15vw'
+          md: '15vw',
         }}
       >
         <TextField
@@ -128,12 +129,12 @@ function LogIn (props: ServerInfo) {
           label={t('serverApiURL')}
           defaultValue={props.serverAddr}
           onChange={(event) => {
-            props.setServerAddr(event.target.value)
+            props.setServerAddr(event.target.value);
           }}
         />
       </Box>
     </Box>
-  )
+  );
 }
 
-export default LogIn
+export default LogIn;

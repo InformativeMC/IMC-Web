@@ -1,18 +1,23 @@
-import AppBar from './component/ImcAppBar'
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-import GeneralInfo from './routes/GeneralInfo'
-import DevTool from './routes/DevTool'
-import LogIn from './routes/LogIn'
-import { useState } from 'react'
+import React from 'react';
+import AppBar from './component/ImcAppBar';
+import {BrowserRouter, Routes, Route, Outlet} from 'react-router-dom';
+import GeneralInfo from './routes/GeneralInfo';
+import DevTool from './routes/DevTool';
+import LogIn from './routes/LogIn';
+import {useState} from 'react';
 
-function App () {
-  const [serverAddr, setServerAddr] = useState('https://localhost:3030/')
-  const [testServerAddr, setTestServerAddr] = useState('https://localhost:3030/')
+function App() {
+  const [serverAddr, setServerAddr] = useState('https://localhost:3030/');
+  const [testServerAddr, setTestServerAddr] = useState(
+      'https://localhost:3030/',
+  );
 
-  const setBothServer = (updater: string | ((oldVal: string) => string)): void => {
-    setServerAddr(updater)
-    setTestServerAddr(updater)
-  }
+  const setBothServer = (
+      updater: string | ((oldVal: string) => string),
+  ): void => {
+    setServerAddr(updater);
+    setTestServerAddr(updater);
+  };
 
   return (
     <div className='App'>
@@ -31,22 +36,21 @@ function App () {
               <LogIn serverAddr={serverAddr} setServerAddr={setBothServer} />
             }
           />
-          <Route
-            path='/overview'
-            element={<GeneralInfo />
-            }
-          />
+          <Route path='/overview' element={<GeneralInfo />} />
           <Route
             path='/dev-tool'
             element={
-              <DevTool serverAddr={testServerAddr} setServerAddr={setTestServerAddr} />
+              <DevTool
+                serverAddr={testServerAddr}
+                setServerAddr={setTestServerAddr}
+              />
             }
           />
         </Routes>
         <Outlet />
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
