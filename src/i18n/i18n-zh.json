@@ -2,7 +2,7 @@
   "translation": {
     "appTitle": "IMC",
     "appDescription": "一个帮助你监控与控制 MC 服务器的工具",
-    "features":"查看资源占用\n执行命令\n查看修改用户数据\n分发物品\n广播消息",
+    "features": "查看资源占用\n执行命令\n查看修改用户数据\n分发物品\n广播消息",
     "currentLang": "当前语言",
     "backToHomePage": "返回主页",
     "overview": "数据总览",

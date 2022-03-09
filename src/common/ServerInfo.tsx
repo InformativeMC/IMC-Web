@@ -1,6 +1,6 @@
 interface ServerInfo {
-  readonly serverAddr: string
-  setServerAddr: (updater: ((oldVal: string) => string) | string) => void
+  readonly serverAddr: string;
+  setServerAddr: (updater: ((oldVal: string) => string) | string) => void;
 }
 
-export default ServerInfo
+export default ServerInfo;
