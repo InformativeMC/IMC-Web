@@ -5,7 +5,7 @@ import DevTool from './routes/DevTool'
 import LogIn from './routes/LogIn'
 import { useState } from 'react'
 
-function App() {
+function App () {
   const [serverAddr, setServerAddr] = useState('https://localhost:3030/')
   const [testServerAddr, setTestServerAddr] = useState('https://localhost:3030/')
 
@@ -13,7 +13,6 @@ function App() {
     setServerAddr(updater)
     setTestServerAddr(updater)
   }
-
 
   return (
     <div className='App'>

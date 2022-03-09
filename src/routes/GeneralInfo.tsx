@@ -1,4 +1,4 @@
-function HomePage() {
+function HomePage () {
   return (
     <h1>
       Sample

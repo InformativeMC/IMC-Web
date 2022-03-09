@@ -12,10 +12,9 @@ import CheckCircleRound from '@ricons/material/CheckCircleRound'
 import ApiList, { Api } from './ApiList'
 import ServerInfo from '../common/ServerInfo'
 
-
 const strLen = (str: string): number => {
-  var len = 0
-  for (var i = 0; i < str.length; i++) {
+  let len = 0
+  for (let i = 0; i < str.length; i++) {
     if (str.charCodeAt(i) > 127 || str.charCodeAt(i) == 94) {
       len += 2
     } else {
@@ -25,8 +24,7 @@ const strLen = (str: string): number => {
   return len
 }
 
-
-function ApiChecker(props: ServerInfo) {
+function ApiChecker (props: ServerInfo) {
   const { t, i18n } = useTranslation()
 
   const [textInput, setTextInput] = useState(props.serverAddr)
@@ -55,7 +53,6 @@ function ApiChecker(props: ServerInfo) {
               api.requiredResponseField.forEach((field) => {
                 if (!(field in res)) {
                   resolve(false)
-                  return
                 }
               })
             } else {
@@ -78,7 +75,7 @@ function ApiChecker(props: ServerInfo) {
     // api names are all english
     Math.max(...ApiList.map((value) => value.name.length)),
     // i18n of 'runAllTest' might have chinese
-    strLen(t('runAllTest')),
+    strLen(t('runAllTest'))
   )
 
   return (
@@ -89,8 +86,8 @@ function ApiChecker(props: ServerInfo) {
         xs: '60%',
         sm: '50%',
         md: '30%',
-        xl: '18%',
-      },
+        xl: '18%'
+      }
     }}>
       <Stack
         direction='column'
@@ -122,13 +119,13 @@ function ApiChecker(props: ServerInfo) {
             })
           }}>
             <SvgIcon color='info' fontSize='medium' sx={{
-              margin: 'auto',
+              margin: 'auto'
             }}>
               <NotStartedOutlined />
             </SvgIcon>
           </IconButton>
           <Box sx={{
-            width: `${maxApiNameLen * 8}px`,
+            width: `${maxApiNameLen * 8}px`
           }}>
             {t('runAllTest')}
           </Box>
@@ -169,7 +166,7 @@ function ApiChecker(props: ServerInfo) {
               >
                 <IconButton onClick={checkThisApi}>
                   <SvgIcon color='info' fontSize='medium' sx={{
-                    margin: 'auto',
+                    margin: 'auto'
                   }}>
                     <NotStartedOutlined />
                   </SvgIcon>
@@ -177,25 +174,25 @@ function ApiChecker(props: ServerInfo) {
 
                 <Box sx={{
                   margin: 'auto',
-                  width: `${maxApiNameLen * 8}px`,
+                  width: `${maxApiNameLen * 8}px`
                 }}>
                   {api.name}
                 </Box>
 
                 <Box>
                   {!firstTime && testing && <CircularProgress color='info' size='16px' sx={{
-                    margin: 'auto',
+                    margin: 'auto'
                   }} />}
                   {!firstTime && !testing && !success && <IconButton>
                     <SvgIcon color='error' fontSize='medium' sx={{
-                      margin: 'auto',
+                      margin: 'auto'
                     }}>
                       <ErrorRound />
                     </SvgIcon>
                   </IconButton>}
                   {!firstTime && !testing && success && <IconButton>
                     <SvgIcon color='success' fontSize='medium' sx={{
-                      margin: 'auto',
+                      margin: 'auto'
                     }}>
                       <CheckCircleRound />
                     </SvgIcon>

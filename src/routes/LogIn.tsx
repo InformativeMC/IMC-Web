@@ -6,8 +6,7 @@ import ServerInfo from '../common/ServerInfo'
 import Stack from '@mui/material/Stack'
 import TweenOne, { TweenOneGroup } from 'rc-tween-one'
 
-
-function LogIn(props: ServerInfo) {
+function LogIn (props: ServerInfo) {
   const { t } = useTranslation()
 
   const Features = () => {
@@ -18,16 +17,16 @@ function LogIn(props: ServerInfo) {
       <Box sx={{
         display: {
           xs: 'none',
-          md: 'block',
+          md: 'block'
         },
-        marginTop: '20px',
+        marginTop: '20px'
       }}>
         <Stack
           spacing='5px'
           margin='auto'
           marginLeft={{
             xs: '100px',
-            lg: '150px',
+            lg: '150px'
           }}
         >
           {featureArray.map((value, index) => {
@@ -91,23 +90,23 @@ function LogIn(props: ServerInfo) {
         display: 'flex',
         flexDirection: {
           xs: 'column',
-          md: 'row-reverse',
-        },
+          md: 'row-reverse'
+        }
       }}
     >
       <Box
         width='fit-content'
         margin={{
           xs: 'auto',
-          md: 'auto',
+          md: 'auto'
         }}
         marginRight={{
           xs: 'auto',
-          md: '12vw',
+          md: '12vw'
         }}
         marginTop={{
           xs: '20px',
-          md: '15vh',
+          md: '15vh'
         }}
       >
         <Description />
@@ -116,11 +115,11 @@ function LogIn(props: ServerInfo) {
         width='fit-content'
         margin={{
           xs: 'auto',
-          md: 'auto',
+          md: 'auto'
         }}
         marginLeft={{
           xs: 'auto',
-          md: '15vw',
+          md: '15vw'
         }}
       >
         <TextField

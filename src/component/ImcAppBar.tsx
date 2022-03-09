@@ -9,13 +9,12 @@ import ButtonBase from '@mui/material/ButtonBase'
 import Box from '@mui/material/Box'
 import availableLang from '../i18n/langs.json'
 
-
-function ImcAppBar() {
+function ImcAppBar () {
   const { t, i18n } = useTranslation()
   const headerHeight = 70
 
   const [langId, setLangId] = (() => {
-    var i = 0;
+    let i = 0
     for (let id = 0; id < availableLang.length; id++) {
       if (availableLang[id] == i18n.language) {
         i = id
@@ -47,7 +46,7 @@ function ImcAppBar() {
             width: 'fit-content',
             lineHeight: `${logoLineHeight}px`,
             fontSize: `${logoFontSize}px`,
-            fontWeight: 'bold',
+            fontWeight: 'bold'
           }}>
             {t('appTitle')}
           </Box>
@@ -63,7 +62,7 @@ function ImcAppBar() {
     const location = useLocation()
 
     const curPageSelected = (): boolean => {
-      var curPath = location.pathname
+      let curPath = location.pathname
       if (curPath.endsWith('?')) {
         curPath = curPath.slice(0, curPath.length - 1)
       }
@@ -73,7 +72,7 @@ function ImcAppBar() {
     return (
       <ButtonBase
         sx={{
-          height: '100%',
+          height: '100%'
         }}
         onClick={() => {
           navigate(path)
@@ -81,14 +80,14 @@ function ImcAppBar() {
       >
         <Box sx={{
           marginLeft: '10px',
-          marginRight: '10px',
+          marginRight: '10px'
           // position: 'relative',
         }}>
           <Box sx={{
             // TODO: change color
             color: curPageSelected() ? 'secondary.light' : 'primary.contrastText',
             fontSize: `${pageTitleFontSize}px`,
-            fontWeight: 'bold',
+            fontWeight: 'bold'
           }}>
             {t(displayTextKey)}
           </Box>
@@ -130,7 +129,7 @@ function ImcAppBar() {
       <Box sx={{
         width: '100%',
         height: `${headerHeight}px`,
-        display: 'flex',
+        display: 'flex'
       }}>
         <Box sx={{
           margin: 'auto',
@@ -139,8 +138,8 @@ function ImcAppBar() {
             xs: '12%',
             sm: '10%',
             md: '8%',
-            lg: '5%',
-          },
+            lg: '5%'
+          }
         }}>
           <Logo />
         </Box>
@@ -158,8 +157,8 @@ function ImcAppBar() {
               xs: '76%',
               sm: '80%',
               md: '84%',
-              lg: '90%',
-            },
+              lg: '90%'
+            }
           }}
         >
           {pageButton('overview', '/overview', 'overview')}
@@ -173,8 +172,8 @@ function ImcAppBar() {
             xs: '12%',
             sm: '10%',
             md: '8%',
-            lg: '5%',
-          },
+            lg: '5%'
+          }
         }}>
           <LanguageSelector />
         </Box>
